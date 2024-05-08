@@ -1,0 +1,109 @@
+// color variables
+:root {
+  --color-0: #ffffff; // light color
+  --color-1: #14171a; // application main background
+  --color-2: #101315; // button filter background
+  --color-3: #0a5a5a; // buttons user and add task
+  --color-4: #293138; // input task background
+  --color-5: #5f6f7a; // user name input background
+  --color-6: #242a2e; // border-color in area
+  --color-7: rgba(255, 255, 0, 0.3215686275); // border done task
+  --color-8: #000000; // dark color
+  --color-9: #f06363; // all tasks
+  --color-10: #2a9b57; // completed tasks
+  --color-11: #6672df; // unfinished tasks
+  --color-12: #df9d60; // delete finished tasks
+  --color-13: #d45cb3; // end unfinished tasks
+  --color-14: #ff5353; // delete all tasks
+  --color-15: #999999; // placeholder text color
+  --color-16: #ffe07d; // user name color
+  --color-17: #293138bd; // search bar
+  --color-18: #222222; // count background
+  --color-19: #242a2e66; // other background for task
+  --color-20: #a5a5a5; // date font color
+  --color-21: #dbd9d9; // task text color
+  --inputs-background: linear-gradient(0deg, #0a5a5a1a 0%, #14171a);
+  --backgorund-color: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgb(41, 49, 56) 50%,
+    rgb(0, 0, 0) 100%
+  );
+  --shadow: 0 0 40px 5px #000;
+  // Filter icon background
+
+  // Sizes
+  --size-5: 5px;
+  --size-10: 10px;
+  --size-15: 15px;
+  --size-20: 1.25rem;
+  --size-25: 25px;
+  --size-30: 30px;
+  --size-35: 35px;
+  --size-40: 2.5rem;
+  --size-250: 250px;
+  // Font Sizes
+  --fs-size-11: 0.719rem;
+  --fs-size-12: 0.75rem;
+  --fs-size-13: 0.813rem;
+  --fs-size-14: 0.875rem;
+  --fs-size-16: 1rem;
+  --fs-size-15: 0.969rem;
+  --fs-size-17: 1.0625rem;
+  --fs-size-18: 1.125rem;
+  --fs-size-20: 1.25rem;
+  --fs-size-30: 1.875rem;
+  // Padding
+  --padding-10: 0.625rem;
+  --padding-15: 0.938rem;
+  --padding-17: 1.063rem;
+  // Margin
+  --margin-auto: auto;
+  --margin-5: 5px;
+  --margin-10: 10px;
+  --margin-15: 15px;
+  // Height
+  --viewport-100: 100vh;
+  --height-30: 30px;
+  --height-45: 45px;
+  --height-48: 48px;
+  --height-50: 50px;
+  --height-100: 6.25rem;
+}
+
+$icon-background: (
+  #feff85cc,
+  #2a9b57,
+  #6672df,
+  #df9d60,
+  #d45cb3,
+  #83e7ff,
+  #ff5353
+);
+// Gutter
+$gutter-space: 0.02px;
+
+// Screen List
+$screens: ("xs", "sm", "md", "lg", "xl", "xxl");
+
+// Grid Break Points
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Responsive containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// Css Vendor Prefix
+$vendor-prefix: ("-webkit-", "-moz-", "-ms-", "-o-");

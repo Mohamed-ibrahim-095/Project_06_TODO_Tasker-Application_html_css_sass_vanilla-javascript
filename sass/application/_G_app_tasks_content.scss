@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+.tasks-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .tasks-count-container {
+    @include display-flex(flex, null, null, end, center, null);
+    @include media-breakpoint("down", "lg", null) {
+      @include display-flex(null, null, null, space-between, null, null);
+    }
+    .task-control-icon {
+      cursor: pointer;
+      span {
+        i {
+          color: var(--color-3);
+          font-size: 25px;
+        }
+      }
+      @include media-breakpoint("up", "lg", null) {
+        display: none;
+      }
+    }
+    .tasks-count {
+      width: var(--size-35);
+      height: var(--size-35);
+      border-radius: 5px;
+      background-color: var(--color-18);
+      color: var(--color-0);
+      @include border-style(1px, solid, null, null, null, null, var(--color-3));
+      @include display-flex(flex, null, null, center, center, null);
+    }
+  }
+  .thinks-icon {
+    width: 7%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include position(absolute, 50%, null, null, 50%);
+    @include auto-prefixer(transform, translate(-50%, -50%));
+    &.hidden_class {
+      display: none;
+    }
+  }
+}

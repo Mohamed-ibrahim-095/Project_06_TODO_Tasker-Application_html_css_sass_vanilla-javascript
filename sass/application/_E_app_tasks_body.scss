@@ -1,0 +1,127 @@
+@use "../abstracts/" as *;
+
+%border-same {
+  @include border-style(1px, solid, null, null, null, null, var(--color-6));
+}
+
+%padding-same {
+  padding: var(--padding-15);
+}
+
+%radius-same {
+  border-radius: var(--size-5);
+}
+
+%flex-same {
+  @include display-flex(flex, null, wrap, null, null, null);
+}
+
+.tasks-body {
+  height: 100%;
+  overflow: hidden;
+  @include display-flex(flex, null, wrap, null, start, var(--padding-15));
+  @include media-breakpoint("down", "xl", null) {
+    @include position(relative, null, null, null, null);
+    overflow: hidden;
+  }
+  .tasks-filter {
+    @extend %padding-same;
+    @extend %border-same;
+    @extend %radius-same;
+    .filter-boxs {
+      .action {
+        @extend %border-same;
+        @extend %radius-same;
+      }
+    }
+  }
+  .tasks-content {
+    height: 100%;
+    @extend %padding-same;
+    @extend %border-same;
+    @extend %radius-same;
+    flex: 1;
+    .tasks-all-container {
+      height: 100%;
+      overflow-y: scroll;
+      margin-top: var(--size-15);
+      display: flex;
+      flex-direction: column;
+      gap: var(--size-15);
+      padding-right: var(--size-5);
+      .task-box {
+        &.done {
+          opacity: 0.4;
+          @include border-style(
+            1px,
+            solid,
+            null,
+            null,
+            null,
+            null,
+            var(--color-7)
+          );
+          .text {
+            text-decoration: line-through;
+          }
+        }
+        &.hidden {
+          // To hide the item when controlling the filter
+          display: none;
+        }
+        &.show {
+          display: flex;
+        }
+        @extend %flex-same;
+        flex-direction: column;
+        gap: var(--size-15);
+        padding: var(--padding-15);
+        border: 1px solid #0000006b;
+        @extend %radius-same;
+        background-color: var(--color-19);
+        .task-date-box {
+          .date {
+            @include font-properties(
+              var(--color-20),
+              var(--fs-size-11),
+              300,
+              null
+            );
+          }
+        }
+        .task-content-box {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          .task-text-box {
+            .text {
+              color: var(--color-21);
+              font-size: var(--fs-size-15);
+            }
+          }
+          .task-control-box {
+            flex: 1;
+            @extend %flex-same;
+            justify-content: end;
+            flex-wrap: nowrap;
+            gap: var(--size-10);
+            .done-button {
+              .done-btn {
+                cursor: pointer;
+                background-color: var(--color-10);
+              }
+            }
+            .delete-button {
+              .delete-btn {
+                cursor: pointer;
+                background-color: var(--color-14);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

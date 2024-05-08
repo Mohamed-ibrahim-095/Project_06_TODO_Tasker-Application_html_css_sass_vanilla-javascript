@@ -1,0 +1,42 @@
+@use "../abstracts/" as *;
+
+.app-alert {
+  @include position(relative, null, null, null, null);
+  opacity: 0;
+  visibility: hidden;
+  @include auto-prefixer(
+    transition,
+    (opacity 0.4s linear, visibility 0.4s linear)
+  );
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .user-name-alert {
+    width: fit-content;
+    @include position(absolute, 20px, null, null, null);
+    .warning-box {
+      border-radius: var(--size-5);
+      padding: var(--size-20);
+      background-color: var(--color-0);
+      @include position(relative, null, null, null, null);
+      @include display-flex(flex, null, null, null, center, var(--size-10));
+      .warning-img {
+        width: 40px;
+      }
+      &::before {
+        content: "";
+        @include position(absolute, -19px, null, null, null);
+        @include border-style(
+          $width: 10px,
+          $style: solid,
+          $top: null,
+          $right: null,
+          $bottom: null,
+          $left: null,
+          $color: transparent transparent var(--color-0) transparent
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@use "./variables" as *;
+@use "sass:meta";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+
+@mixin media-breakpoint($type, $screen, $end: null) {
+  @each $key, $value in $grid-breakpoints {
+    // min-width
+    @if $type == "up" {
+      @if $key != "xs" {
+        @if $screen == $key {
+          @media (min-width: $value) {
+            @content;
+          }
+        }
+      } // max-width
+    } @else if $type == "down" {
+      @if $key != "xs" {
+        @if $screen == $key {
+          @media (max-width: calc($value - $gutter-space)) {
+            @content;
+          }
+        }
+      } // only - Single breakpoint
+    } @else if $type == "only" {
+      @if $screen == $key {
+        @if $key != "xxl" {
+          @media (min-width: $value) and (max-width: calc(map-get($grid-breakpoints, list.nth(
+            map-keys($map: $grid-breakpoints),
+            calc(index($list: map-keys($map: $grid-breakpoints), $value: $key) + 1)
+          )) - $gutter-space)) {
+            @content;
+          }
+        }
+      } // Between breakpoints
+    } @else if $type == "between" {
+      @if $screen == $key and $screen != "xxl" {
+        @if map-get($grid-breakpoints, $screen) <
+          map-get($grid-breakpoints, $end)
+        {
+          @media (min-width: $value) and (max-width: calc(map-get($grid-breakpoints, $end) - $gutter-space)) {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Container
+@mixin make-container {
+  @each $key, $value in $container-max-widths {
+    @include media-breakpoint("up", $key, $end: null) {
+      max-width: $value;
+    }
+  }
+}
+
+// Position
+@mixin position(
+  $position-type,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null
+) {
+  position: $position-type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Css Autoprefixer
+@mixin auto-prefixer($property, $value) {
+  #{$property}: $value;
+  @each $prefix in $vendor-prefix {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+// Dispaly Flex Properties
+@mixin display-flex(
+  $display: null,
+  $direction: null,
+  $wrap: null,
+  $justify-content: null,
+  $align-items: null,
+  $gap: null
+) {
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+
+// Font Properties
+@mixin font-properties($color: null, $size: null, $weight: null, $style: null) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  text-transform: $style;
+}
+
+// Border
+@mixin border-style(
+  $width: null,
+  $style: null,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $color: null
+) {
+  border: {
+    width: $width;
+    style: $style;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    color: $color;
+  }
+}
+
+// css selector - nth - nth-child - nth-of-type or more
+@mixin nth-order($class-name) {
+  @for $i from 1 through length($list: $icon-background) {
+    &:nth-of-type(#{$i}) {
+      .#{$class-name} {
+        background-color: list.nth($icon-background, $i);
+      }
+    }
+  }
+}

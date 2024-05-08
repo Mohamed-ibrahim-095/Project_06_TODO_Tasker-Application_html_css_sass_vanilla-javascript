@@ -1,0 +1,41 @@
+@use "../abstracts/" as *;
+
+.tasks-filter {
+  width: fit-content;
+  @include auto-prefixer(transition, transform 0.4s linear);
+  @include media-breakpoint("down", "lg", null) {
+    background-color: var(--color-1);
+    z-index: 100;
+    @include position(absolute, 67px, null, null, null);
+    @include auto-prefixer(transform, translateX(-100%));
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  &.open {
+    @include auto-prefixer(transition, transform 0.4s linear);
+    @include media-breakpoint("down", "lg", null) {
+      @include auto-prefixer(transform, translateX(0));
+    }
+  }
+  .filter-boxs {
+    @include display-flex(flex, column, wrap, null, null, var(--size-15));
+    .action {
+      padding: var(--padding-10) var(--padding-15);
+      background-color: var(--color-2);
+      &:hover {
+        background: none;
+      }
+      cursor: pointer;
+      @include nth-order(icon);
+      @include display-flex(flex, row, wrap, null, center, var(--size-15));
+      .action-name {
+        @include font-properties(
+          var(--color-0),
+          var(--fs-size-12),
+          null,
+          capitalize
+        );
+      }
+    }
+  }
+}

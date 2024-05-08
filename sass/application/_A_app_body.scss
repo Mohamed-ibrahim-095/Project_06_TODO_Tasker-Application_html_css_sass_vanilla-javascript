@@ -1,0 +1,36 @@
+@use "../abstracts/" as *;
+
+/* Start - Application Body */
+.application-body {
+  height: var(--viewport-100);
+  @include position(relative);
+  .application {
+    @include display-flex(flex, column, null, null, null, null); // update
+    background-color: var(--color-1);
+    height: calc(var(--viewport-100) - var(--height-30));
+    padding: var(--size-40) var(--size-20);
+    box-shadow: var(--shadow);
+    @include media-breakpoint("down", "md", null) {
+      padding: var(--size-10);
+    }
+    @include position(absolute, 50%, 0, null, 0);
+    @include auto-prefixer(transform, translateY(-50%));
+    .developer-name {
+      margin: var(--size-15) auto 0 auto;
+      @include font-properties(
+        var(--color-20),
+        var(--fs-size-13),
+        null,
+        capitalize
+      );
+      .my-name {
+        display: inline-block;
+        color: var(--color-3);
+      }
+      @include media-breakpoint("down", "md", null) {
+        font-size: var(--fs-size-12);
+      }
+    }
+  }
+}
+/* End.. - Application Body */

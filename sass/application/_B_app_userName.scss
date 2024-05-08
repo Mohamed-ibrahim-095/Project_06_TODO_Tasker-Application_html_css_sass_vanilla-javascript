@@ -1,0 +1,82 @@
+@use "../abstracts/" as *;
+
+%flex-same {
+  display: flex;
+  align-items: center;
+}
+
+%border-same {
+  border: 1px solid var(--color-3);
+}
+
+.app-user-name {
+  @extend %flex-same;
+  @include display-flex(null, null, null, space-between, center, null);
+  @include media-breakpoint("down", "lg", $end: null) {
+    @include display-flex(
+      null,
+      column-reverse,
+      wrap,
+      null,
+      start,
+      var(--size-25)
+    );
+  }
+  .user-name-container {
+    height: 48px;
+    @include display-flex(flex, null, null, null, center, null);
+    @include media-breakpoint("down", "lg", null) {
+      width: 100%;
+    }
+    .user-name-box {
+      flex: 1;
+      form {
+        @extend %flex-same;
+        .input {
+          background-color: var(--color-2);
+          @extend %border-same;
+          @include media-breakpoint("down", "lg", $end: null) {
+            flex: 1;
+          }
+        }
+        .button {
+          @extend %border-same;
+        }
+      }
+    }
+    .user-name-view {
+      & * span {
+        display: inline-block;
+      }
+      .user-info {
+        @include font-properties(
+          var(--color-0),
+          var(--fs-size-20),
+          null,
+          capitalize
+        );
+        .name {
+          color: var(--color-16);
+        }
+      }
+    }
+  }
+  .application-reset {
+    .reset-box {
+      span {
+        @extend %flex-same;
+        @include display-flex(null, null, null, center, null, null);
+        @include font-properties(var(--color-3), var(--fs-size-30), null, null);
+        cursor: pointer;
+        .icon {
+          @include auto-prefixer(transition, transform 0.5s linear);
+        }
+        &:hover {
+          .icon {
+            @include auto-prefixer(transform, rotate(90deg));
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+
+%style-same {
+  height: var(--height-48);
+  border: none;
+  outline: none;
+}
+
+.main-input {
+  @extend %style-same;
+  padding: 0 var(--margin-10);
+  @include font-properties(var(--color-0), var(--fs-size-18), 400, null);
+  &::placeholder {
+    @include font-properties(var(--color-15), var(--fs-size-12), 400, null);
+    letter-spacing: 1.3px;
+  }
+}
+
+.main-button {
+  @extend %style-same;
+  @include font-properties(var(--color-0), var(--fs-size-18), 400, capitalize);
+  background-color: var(--color-3);
+  padding: var(--padding-17);
+  cursor: pointer;
+  @include display-flex(flex, null, null, null, center, var(--size-10));
+}

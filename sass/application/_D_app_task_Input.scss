@@ -1,0 +1,59 @@
+@use "../abstracts/" as *;
+
+%radius {
+  border-radius: 3px;
+}
+
+.task-add-search {
+  margin: var(--size-25) 0;
+  @include display-flex(flex, column, wrap, null, null, var(--size-25));
+
+  .add-task-container {
+    .app-form {
+      @include display-flex(flex, null, wrap, null, center, var(--size-15));
+      .add-task {
+        flex-grow: 1;
+        @extend %radius;
+        // background-color: var(--color-4);
+        background: var(--inputs-background);
+        border-bottom: 1px solid #0a5a5ad1;
+        @include media-breakpoint("down", "lg", $end: null) {
+          width: 100%;
+        }
+      }
+      .push-task {
+        @extend %radius;
+      }
+    }
+  }
+  // Search bar
+  .search-bar {
+    .search-content {
+      background: var(--inputs-background);
+      width: fit-content;
+      padding: var(--size-5) var(--size-10);
+      border-bottom: 1px solid #0a5a5ad1;
+      @extend %radius;
+      @include display-flex(flex, null, wrap, null, center, var(--size-15));
+      @include media-breakpoint("down", "lg", $end: null) {
+        width: 100%;
+      }
+      .search {
+        height: 35px;
+        width: 350px;
+        border: none;
+        outline: none;
+        background: none;
+        @include font-properties(var(--color-0), null, null, $style: null);
+        @include media-breakpoint("down", "lg", $end: null) {
+          width: 0;
+          flex-grow: 1;
+        }
+      }
+      .icon {
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
+}

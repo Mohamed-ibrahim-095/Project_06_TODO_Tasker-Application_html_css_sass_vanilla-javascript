@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+/* Start - container - Responsive Media queries */
+
+.container {
+  width: 100%;
+  padding-left: var(--padding-15);
+  padding-right: var(--padding-15);
+  margin-left: var(--margin-auto);
+  margin-right: var(--margin-auto);
+  @include make-container;
+}
+
+/* End.. - container - Responsive Media queries */

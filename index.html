@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasker Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="icon/logo.png" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="application-body">
+        <div class="application">
+          <!-- Start - app user-name -->
+          <section class="app-user-name">
+            <div class="user-name-container">
+              <div class="user-name-box">
+                <form action="" class="form">
+                  <input
+                    class="input main-input"
+                    type="text"
+                    placeholder="user name"
+                  />
+                  <button class="button main-button">
+                    <span><i class="fa-solid fa-user"></i></span>
+                    <span>send</span>
+                  </button>
+                </form>
+              </div>
+              <div class="user-name-view hidden">
+                <span class="user-info"><span class="name"></span></span>
+              </div>
+            </div>
+            <div class="application-reset">
+              <div class="reset-box">
+                <span><i class="fa-solid fa-rotate icon"></i></span>
+              </div>
+            </div>
+          </section>
+          <!-- End.. - app user-name -->
+          <!-- Start - app app-alert and active class -->
+          <section class="app-alert">
+            <audio controls style="display: none">
+              <source src="sound/error.mp3" />
+            </audio>
+            <div class="user-name-alert">
+              <div class="warning-box">
+                <div class="warning-img">
+                  <img src="icon/warning.png" alt="warning" />
+                </div>
+                <div class="warning-content">
+                  <span>please enter your name</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End.. - app app-alert -->
+          <!-- Start - app add-task -->
+          <section class="task-add-search">
+            <div class="add-task-container">
+              <form action="" class="app-form">
+                <input
+                  type="text"
+                  class="add-task main-input"
+                  placeholder="add new task"
+                />
+                <button class="push-task main-button">
+                  <span><i class="fa-solid fa-plus"></i></span>
+                  <span>new task</span>
+                </button>
+              </form>
+            </div>
+            <div class="search-bar">
+              <div class="search-content">
+                <input
+                  type="text"
+                  class="search"
+                  placeholder="Find the task you created"
+                />
+                <span class="icon"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+              </div>
+            </div>
+          </section>
+          <!-- End.. - app add-task -->
+          <!-- Start - app body-tasks -->
+          <div class="tasks-body">
+            <div class="tasks-filter">
+              <ul class="filter-boxs">
+                <li class="action action-1">
+                  <span class="icon"
+                    ><i class="fa-solid fa-list-check"></i></span
+                  ><span class="action-name">all task</span>
+                </li>
+                <li class="action action-2">
+                  <span class="icon"><i class="fa-solid fa-check"></i></span
+                  ><span class="action-name">completed tasks</span>
+                </li>
+                <li class="action action-3">
+                  <span class="icon"><i class="fa-solid fa-list"></i></span
+                  ><span class="action-name">unfinished tasks</span>
+                </li>
+                <li class="action action-4">
+                  <span class="icon"><i class="fa-solid fa-trash"></i></span
+                  ><span class="action-name">delete finished tasks</span>
+                </li>
+                <li class="action action-5">
+                  <span class="icon"
+                    ><i class="fa-solid fa-check-to-slot"></i></span
+                  ><span class="action-name">end unfinished tasks</span>
+                </li>
+                <li class="action action-6">
+                  <span class="icon"
+                    ><i class="fa-solid fa-rectangle-list"></i></span
+                  ><span class="action-name">returns done task</span>
+                </li>
+                <li class="action action-7">
+                  <span class="icon"><i class="fa-solid fa-trash-can"></i></span
+                  ><span class="action-name">delete all tasks</span>
+                </li>
+              </ul>
+            </div>
+            <div class="tasks-content">
+              <div class="tasks-count-container">
+                <div class="task-control-icon">
+                  <span><i class="fa-solid fa-bars"></i></span>
+                </div>
+                <div class="tasks-count">
+                  <span></span>
+                </div>
+              </div>
+              <div class="tasks-all-container">
+                <!-- Task -->
+                <!-- Task -->
+              </div>
+              <div class="thinks-icon hidden_class">
+                <img src="icon/thinking_1.png" alt="thinks" />
+              </div>
+            </div>
+          </div>
+          <!-- End.. - app body-tasks -->
+          <footer class="developer-name">
+            created by <span class="my-name">mohamed ibrahim</span> &#174;
+            <span class="year"></span>
+            <!-- Created in Tuesday, May 7, 2024 -->
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script src="javascript/app.js"></script>
+  </body>
+</html>
